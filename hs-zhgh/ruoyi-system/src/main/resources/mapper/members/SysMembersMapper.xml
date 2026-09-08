@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.members.mapper.SysMembersMapper">
+    
+    <resultMap type="SysMembers" id="SysMembersResult">
+        <result property="membersId"    column="members_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="membersName"    column="members_name"    />
+        <result property="membersNum"    column="members_num"    />
+        <result property="membersSex"    column="members_sex"    />
+        <result property="membersBir"    column="members_bir"    />
+        <result property="membersBackground"    column="members_background"    />
+        <result property="membersNation"    column="members_nation"    />
+        <result property="membersPolitical"    column="members_political"    />
+        <result property="membersSchoolDate"    column="members_school_date"    />
+        <result property="membersTel"    column="members_tel"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="societyId"    column="society_id"    />
+        <result property="membersMaritalStatus"    column="members_marital_status"    />
+        <result property="membersSpouseCampusStaff"    column="members_spouse_campus_staff"    />
+        <result property="membersNativePlace"    column="members_native_place"    />
+        <result property="membersAddress"    column="members_address"    />
+        <result property="school"    column="school"    />
+        <result property="membersModeEmployment"    column="members_mode_employment"    />
+        <result property="membersResume"    column="members_resume"    />
+        <result property="membersMainFamily"    column="members_main_family"    />
+        <result property="membersHobby"    column="members_hobby"    />
+        <result property="membersRemarks"    column="members_remarks"    />
+        <result property="membersImg"    column="members_img"    />
+        <result property="membersSign"    column="members_sign"    />
+        <result property="membersContactNumber"    column="members_contact_number"    />
+        <result property="membersAdmissionTime"    column="members_admission_time"    />
+        <result property="membersStatus"    column="members_status"    />
+        <result property="membersAge"    column="members_age"    />
+        <result property="membersIsStatus"    column="members_is_status"    />
+        <result property="membersNationality"    column="members_nationality"    />
+        <result property="membersIdentityType"    column="members_identity_type"    />
+        <result property="membersIdentityNum"    column="members_identity_num"    />
+        <result property="membersTechnical"    column="members_technical"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="membersProfessional"    column="members_professional"    />
+        <result property="membersEmail"    column="members_email"    />
+        <result property="membersAdministrative"    column="members_administrative"    />
+        <result property="membersSpouseName"    column="members_spouse_name"    />
+        <result property="membersHouseholdType"    column="members_household_type"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysMembersVo">
+        select members_id, user_id, members_name, members_num, members_sex, members_bir, members_background, members_nation, members_political, members_school_date, members_tel, dept_id, society_id, members_marital_status, members_spouse_campus_staff, members_native_place, members_address, school, members_mode_employment, members_resume, members_main_family, members_hobby, members_remarks, members_img, members_sign, members_contact_number, members_admission_time, members_status, members_age, members_is_status, members_nationality, members_identity_type, members_identity_num, members_technical, create_time, members_professional, members_email, members_administrative, members_spouse_name, members_household_type, create_by, update_by, update_time, del_flag, remark from sys_members
+    </sql>
+
+    <select id="selectSysMembersList" parameterType="SysMembers" resultMap="SysMembersResult">
+        <include refid="selectSysMembersVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="membersName != null  and membersName != ''"> and members_name like concat('%', #{membersName}, '%')</if>
+            <if test="membersNum != null "> and members_num = #{membersNum}</if>
+            <if test="membersSex != null  and membersSex != ''"> and members_sex = #{membersSex}</if>
+            <if test="membersBir != null "> and members_bir = #{membersBir}</if>
+            <if test="membersBackground != null  and membersBackground != ''"> and members_background = #{membersBackground}</if>
+            <if test="membersNation != null  and membersNation != ''"> and members_nation = #{membersNation}</if>
+            <if test="membersPolitical != null  and membersPolitical != ''"> and members_political = #{membersPolitical}</if>
+            <if test="membersSchoolDate != null "> and members_school_date = #{membersSchoolDate}</if>
+            <if test="membersTel != null  and membersTel != ''"> and members_tel = #{membersTel}</if>
+            <if test="deptId != null "> and dept_id = #{deptId}</if>
+            <if test="societyId != null "> and society_id = #{societyId}</if>
+            <if test="membersMaritalStatus != null  and membersMaritalStatus != ''"> and members_marital_status = #{membersMaritalStatus}</if>
+            <if test="membersSpouseCampusStaff != null  and membersSpouseCampusStaff != ''"> and members_spouse_campus_staff = #{membersSpouseCampusStaff}</if>
+            <if test="membersNativePlace != null  and membersNativePlace != ''"> and members_native_place = #{membersNativePlace}</if>
+            <if test="membersAddress != null  and membersAddress != ''"> and members_address = #{membersAddress}</if>
+            <if test="school != null  and school != ''"> and school = #{school}</if>
+            <if test="membersModeEmployment != null  and membersModeEmployment != ''"> and members_mode_employment = #{membersModeEmployment}</if>
+            <if test="membersResume != null  and membersResume != ''"> and members_resume = #{membersResume}</if>
+            <if test="membersMainFamily != null  and membersMainFamily != ''"> and members_main_family = #{membersMainFamily}</if>
+            <if test="membersHobby != null  and membersHobby != ''"> and members_hobby = #{membersHobby}</if>
+            <if test="membersRemarks != null  and membersRemarks != ''"> and members_remarks = #{membersRemarks}</if>
+            <if test="membersImg != null  and membersImg != ''"> and members_img = #{membersImg}</if>
+            <if test="membersSign != null  and membersSign != ''"> and members_sign = #{membersSign}</if>
+            <if test="membersContactNumber != null  and membersContactNumber != ''"> and members_contact_number = #{membersContactNumber}</if>
+            <if test="membersAdmissionTime != null  and membersAdmissionTime != ''"> and members_admission_time = #{membersAdmissionTime}</if>
+            <if test="membersStatus != null  and membersStatus != ''"> and members_status = #{membersStatus}</if>
+            <if test="membersAge != null  and membersAge != ''"> and members_age = #{membersAge}</if>
+            <if test="membersIsStatus != null  and membersIsStatus != ''"> and members_is_status = #{membersIsStatus}</if>
+            <if test="membersNationality != null  and membersNationality != ''"> and members_nationality = #{membersNationality}</if>
+            <if test="membersIdentityType != null  and membersIdentityType != ''"> and members_identity_type = #{membersIdentityType}</if>
+            <if test="membersIdentityNum != null  and membersIdentityNum != ''"> and members_identity_num = #{membersIdentityNum}</if>
+            <if test="membersTechnical != null  and membersTechnical != ''"> and members_technical = #{membersTechnical}</if>
+            <if test="membersProfessional != null  and membersProfessional != ''"> and members_professional = #{membersProfessional}</if>
+            <if test="membersEmail != null  and membersEmail != ''"> and members_email = #{membersEmail}</if>
+            <if test="membersAdministrative != null  and membersAdministrative != ''"> and members_administrative = #{membersAdministrative}</if>
+            <if test="membersSpouseName != null  and membersSpouseName != ''"> and members_spouse_name like concat('%', #{membersSpouseName}, '%')</if>
+            <if test="membersHouseholdType != null  and membersHouseholdType != ''"> and members_household_type = #{membersHouseholdType}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysMembersByMembersId" parameterType="Long" resultMap="SysMembersResult">
+        <include refid="selectSysMembersVo"/>
+        where members_id = #{membersId}
+    </select>
+
+    <insert id="insertSysMembers" parameterType="SysMembers" useGeneratedKeys="true" keyProperty="membersId">
+        insert into sys_members
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="membersName != null">members_name,</if>
+            <if test="membersNum != null">members_num,</if>
+            <if test="membersSex != null">members_sex,</if>
+            <if test="membersBir != null">members_bir,</if>
+            <if test="membersBackground != null">members_background,</if>
+            <if test="membersNation != null">members_nation,</if>
+            <if test="membersPolitical != null">members_political,</if>
+            <if test="membersSchoolDate != null">members_school_date,</if>
+            <if test="membersTel != null">members_tel,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="societyId != null">society_id,</if>
+            <if test="membersMaritalStatus != null">members_marital_status,</if>
+            <if test="membersSpouseCampusStaff != null">members_spouse_campus_staff,</if>
+            <if test="membersNativePlace != null">members_native_place,</if>
+            <if test="membersAddress != null">members_address,</if>
+            <if test="school != null">school,</if>
+            <if test="membersModeEmployment != null">members_mode_employment,</if>
+            <if test="membersResume != null">members_resume,</if>
+            <if test="membersMainFamily != null">members_main_family,</if>
+            <if test="membersHobby != null">members_hobby,</if>
+            <if test="membersRemarks != null">members_remarks,</if>
+            <if test="membersImg != null">members_img,</if>
+            <if test="membersSign != null">members_sign,</if>
+            <if test="membersContactNumber != null">members_contact_number,</if>
+            <if test="membersAdmissionTime != null">members_admission_time,</if>
+            <if test="membersStatus != null">members_status,</if>
+            <if test="membersAge != null">members_age,</if>
+            <if test="membersIsStatus != null">members_is_status,</if>
+            <if test="membersNationality != null">members_nationality,</if>
+            <if test="membersIdentityType != null">members_identity_type,</if>
+            <if test="membersIdentityNum != null">members_identity_num,</if>
+            <if test="membersTechnical != null">members_technical,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="membersProfessional != null">members_professional,</if>
+            <if test="membersEmail != null">members_email,</if>
+            <if test="membersAdministrative != null">members_administrative,</if>
+            <if test="membersSpouseName != null">members_spouse_name,</if>
+            <if test="membersHouseholdType != null">members_household_type,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="membersName != null">#{membersName},</if>
+            <if test="membersNum != null">#{membersNum},</if>
+            <if test="membersSex != null">#{membersSex},</if>
+            <if test="membersBir != null">#{membersBir},</if>
+            <if test="membersBackground != null">#{membersBackground},</if>
+            <if test="membersNation != null">#{membersNation},</if>
+            <if test="membersPolitical != null">#{membersPolitical},</if>
+            <if test="membersSchoolDate != null">#{membersSchoolDate},</if>
+            <if test="membersTel != null">#{membersTel},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="societyId != null">#{societyId},</if>
+            <if test="membersMaritalStatus != null">#{membersMaritalStatus},</if>
+            <if test="membersSpouseCampusStaff != null">#{membersSpouseCampusStaff},</if>
+            <if test="membersNativePlace != null">#{membersNativePlace},</if>
+            <if test="membersAddress != null">#{membersAddress},</if>
+            <if test="school != null">#{school},</if>
+            <if test="membersModeEmployment != null">#{membersModeEmployment},</if>
+            <if test="membersResume != null">#{membersResume},</if>
+            <if test="membersMainFamily != null">#{membersMainFamily},</if>
+            <if test="membersHobby != null">#{membersHobby},</if>
+            <if test="membersRemarks != null">#{membersRemarks},</if>
+            <if test="membersImg != null">#{membersImg},</if>
+            <if test="membersSign != null">#{membersSign},</if>
+            <if test="membersContactNumber != null">#{membersContactNumber},</if>
+            <if test="membersAdmissionTime != null">#{membersAdmissionTime},</if>
+            <if test="membersStatus != null">#{membersStatus},</if>
+            <if test="membersAge != null">#{membersAge},</if>
+            <if test="membersIsStatus != null">#{membersIsStatus},</if>
+            <if test="membersNationality != null">#{membersNationality},</if>
+            <if test="membersIdentityType != null">#{membersIdentityType},</if>
+            <if test="membersIdentityNum != null">#{membersIdentityNum},</if>
+            <if test="membersTechnical != null">#{membersTechnical},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="membersProfessional != null">#{membersProfessional},</if>
+            <if test="membersEmail != null">#{membersEmail},</if>
+            <if test="membersAdministrative != null">#{membersAdministrative},</if>
+            <if test="membersSpouseName != null">#{membersSpouseName},</if>
+            <if test="membersHouseholdType != null">#{membersHouseholdType},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysMembers" parameterType="SysMembers">
+        update sys_members
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="membersName != null">members_name = #{membersName},</if>
+            <if test="membersNum != null">members_num = #{membersNum},</if>
+            <if test="membersSex != null">members_sex = #{membersSex},</if>
+            <if test="membersBir != null">members_bir = #{membersBir},</if>
+            <if test="membersBackground != null">members_background = #{membersBackground},</if>
+            <if test="membersNation != null">members_nation = #{membersNation},</if>
+            <if test="membersPolitical != null">members_political = #{membersPolitical},</if>
+            <if test="membersSchoolDate != null">members_school_date = #{membersSchoolDate},</if>
+            <if test="membersTel != null">members_tel = #{membersTel},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="societyId != null">society_id = #{societyId},</if>
+            <if test="membersMaritalStatus != null">members_marital_status = #{membersMaritalStatus},</if>
+            <if test="membersSpouseCampusStaff != null">members_spouse_campus_staff = #{membersSpouseCampusStaff},</if>
+            <if test="membersNativePlace != null">members_native_place = #{membersNativePlace},</if>
+            <if test="membersAddress != null">members_address = #{membersAddress},</if>
+            <if test="school != null">school = #{school},</if>
+            <if test="membersModeEmployment != null">members_mode_employment = #{membersModeEmployment},</if>
+            <if test="membersResume != null">members_resume = #{membersResume},</if>
+            <if test="membersMainFamily != null">members_main_family = #{membersMainFamily},</if>
+            <if test="membersHobby != null">members_hobby = #{membersHobby},</if>
+            <if test="membersRemarks != null">members_remarks = #{membersRemarks},</if>
+            <if test="membersImg != null">members_img = #{membersImg},</if>
+            <if test="membersSign != null">members_sign = #{membersSign},</if>
+            <if test="membersContactNumber != null">members_contact_number = #{membersContactNumber},</if>
+            <if test="membersAdmissionTime != null">members_admission_time = #{membersAdmissionTime},</if>
+            <if test="membersStatus != null">members_status = #{membersStatus},</if>
+            <if test="membersAge != null">members_age = #{membersAge},</if>
+            <if test="membersIsStatus != null">members_is_status = #{membersIsStatus},</if>
+            <if test="membersNationality != null">members_nationality = #{membersNationality},</if>
+            <if test="membersIdentityType != null">members_identity_type = #{membersIdentityType},</if>
+            <if test="membersIdentityNum != null">members_identity_num = #{membersIdentityNum},</if>
+            <if test="membersTechnical != null">members_technical = #{membersTechnical},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="membersProfessional != null">members_professional = #{membersProfessional},</if>
+            <if test="membersEmail != null">members_email = #{membersEmail},</if>
+            <if test="membersAdministrative != null">members_administrative = #{membersAdministrative},</if>
+            <if test="membersSpouseName != null">members_spouse_name = #{membersSpouseName},</if>
+            <if test="membersHouseholdType != null">members_household_type = #{membersHouseholdType},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where members_id = #{membersId}
+    </update>
+
+    <delete id="deleteSysMembersByMembersId" parameterType="Long">
+        delete from sys_members where members_id = #{membersId}
+    </delete>
+
+    <delete id="deleteSysMembersByMembersIds" parameterType="String">
+        delete from sys_members where members_id in 
+        <foreach item="membersId" collection="array" open="(" separator="," close=")">
+            #{membersId}
+        </foreach>
+    </delete>
+</mapper>

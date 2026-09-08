@@ -1,0 +1,9 @@
+Application Version: ${ruoyi.version}
+Spring Boot Version: ${spring-boot.version}
+mm    mm                        mmmm    mm
+ ##    ##                      m#""""#   ##
+ ##    ##  ##    ##   m#####m  ##m       ##m####m   m#####m  ##m####m
+ ########  ##    ##   " mmm##   "####m   ##"   ##   " mmm##  ##"   ##
+ ##    ##  ##    ##  m##"""##       "##  ##    ##  m##"""##  ##    ##
+ ##    ##  ##mmm###  ##mmm###  #mmmmm#"  ##    ##  ##mmm###  ##    ##
+ ""    ""   """" ""   """" ""   """""    ""    ""   """" ""  ""    ""
